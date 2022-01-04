@@ -11,8 +11,8 @@ Meu nome é Lucas Anchieta, entusiasta e eterno estudante do universo dos dados.
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevLucasAnchieta&layout=compact&langs_count=7&theme=dark"/>
 </div>
  
-<div style="display": inline_block><br/>
-<img align="center" alt="SQLServer" src="https://www.flaticon.com/free-icon/sql-server_5968409?term=sql%20server&page=1&position=48&page=1&position=48&related_id=5968409&origin=search"/>
+<div style="display: inline_block"><br>
+  <img align="center" alt="Rafa-Js" height="100" width="100" src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg">
 </div>
   
 <div>
