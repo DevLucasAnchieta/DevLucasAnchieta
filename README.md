@@ -2,7 +2,7 @@ Olá!!
 Meu nome é Lucas Anchieta, entusiasta e eterno estudante do universo dos dados. 👨🏼‍🚀
 
 - 👨🏼‍🔧 Atualmente estou trabalhando com suporte à soluções
-- 👨🏼‍🎓 Me estudo é focado no campo de análise de dados 📚
+- 👨🏼‍🎓 Meu estudo é focado no campo de análise de dados 📚
 - 📧 Contate-me: lucas@anchieta.dev / lucasanchieta.job@gmail.com
 
 <div align="center">
