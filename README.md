@@ -2,7 +2,7 @@
 <h3 align="center">Analista de dados e entusiasta pelo universo dos dados 🚀</h3>.
 
 <p align="center">
-  <img src="https://github.com/DevLucasAnchieta/DevLucasAnchieta/blob/main/Cabe%C3%A7alho%20do%20perfil%20do%20GitHub.gif">
+  <img src="https://github.com/DevLucasAnchieta/DevLucasAnchieta/blob/main/Cabe%C3%A7alho%20do%20perfil%20do%20GitHub.gif" height="300" width="1000" >
 </p>
 
 <!--
