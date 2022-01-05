@@ -1,5 +1,5 @@
- <h1 align="center">Olá!!! Eu sou o Lucas Anchieta</h1>
-<h3 align="center">Analista de dados e entusiasta pelo universo dos dados 🚀</h3>.
+<h1 align="center">Meu nome é Lucas e este é o meu GitHub🚀 </h1>
+
 
 <p align="center">
   <img src="https://github.com/DevLucasAnchieta/DevLucasAnchieta/blob/main/Head.gif" height="300" width="1000" >
@@ -15,8 +15,14 @@ Type this command `make generate-gif` to generate [assets/github.gif](assets/git
 -->
 
 - 👨🏼‍🔧 Atualmente estou trabalhando com suporte à soluções
-- 👨🏼‍🎓 Meu estudo é focado no campo de análise de dados 📚
-- 📧 Contate-me: lucas@anchieta.dev / lucasanchieta.job@gmail.com
+- 📚 Meu estudo é focado no campo de análise de dados:
+    - ETL, Data Marts, Data Warehouse;
+    - Linguagem SQL: DML, DDL, DCL e TCL;
+    - Modelagem Dimensional;
+    - Microsoft SQL Server: Banco de dados, Integration Services, Analysis Services e Reporting Services;
+    - Microsoft Power BI: DataVis, Linaguem M e Linguagem DAX;
+    - Oracle MySQL;
+     
 
 <div align="center">
   <a href="https://github.com/DevLucasAnchieta">
