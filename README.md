@@ -1,7 +1,7 @@
  <h1 align="center">Olá!!! Eu sou o Lucas Anchieta</h1>
 <h3 align="center">Analista de dados e entusiasta pelo universo dos dados 🚀</h3>.
 
-<p align="center" 
+<p align="center">
   <img src="https://github.com/DevLucasAnchieta/DevLucasAnchieta/blob/main/Cabe%C3%A7alho%20do%20perfil%20do%20GitHub.gif">
 </p>
 
