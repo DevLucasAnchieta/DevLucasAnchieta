@@ -1,0 +1,320 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="99f3d575-0b39-4878-af65-0bf1ee743654" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Cliente</ID>
+  <Name>Dim Cliente</Name>
+  <CreatedTimestamp>0001-01-01T08:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T08:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2171" scrolltop="-1468" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7832" y="8229" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimCliente" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000b80b0000ea120000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DataWarehouse_DimCliente" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2171</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-1468</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="99">
+            <Shape Id="Id SK" Expanded="false">
+              <Attributes>
+                <Attribute Id="Id SK" />
+                <Attribute Id="Fim" />
+                <Attribute Id="Início" />
+                <Attribute Id="País Sigla" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Continente" Expanded="false">
+              <Attributes>
+                <Attribute Id="Continente" />
+              </Attributes>
+              <Position x="148" y="20" />
+            </Shape>
+            <Shape Id="País" Expanded="false">
+              <Attributes>
+                <Attribute Id="País" />
+              </Attributes>
+              <Position x="148" y="68" />
+            </Shape>
+            <Shape Id="Região" Expanded="false">
+              <Attributes>
+                <Attribute Id="Região" />
+              </Attributes>
+              <Position x="148" y="116" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T08:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="fb7e6767-4ab3-418b-893e-e157d7372eef">
+    <DataSourceViewID>DSV_DWAdventureWorks_DMVendas</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="84fc4a3d-5243-4d21-8373-8e64b14cd2f5">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="6d23159b-fe3e-4c1a-8b34-d133fb93f774">
+      <ID>Id SK</ID>
+      <Name>Cliente</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="96a5f2da-6bb2-4006-91c2-0ff8fffd2225">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3a30154b-7e36-4fb4-915e-ecae0778548d">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>IdSK</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c1c1f00f-00e1-4e7d-9e19-27b333595d7e">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8bec17ba-8c98-47f7-9266-fd5badca588a">
+          <TableID>DataWarehouse_DimCliente</TableID>
+          <ColumnID>Cliente</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="506edfef-dc4b-4aef-a334-729612a0d1f0">
+          <AttributeID>Região</AttributeID>
+          <Name>Região</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4f5b4311-2ec0-445b-b201-5e244883e344">
+          <AttributeID>País</AttributeID>
+          <Name>País</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a94d2d30-8655-4ec4-93f5-72540c29f266">
+          <AttributeID>País Sigla</AttributeID>
+          <Name>País Sigla</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="94651590-5166-4d6b-996d-ceebce33e6c0">
+          <AttributeID>Continente</AttributeID>
+          <Name>Continente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="23ab4018-e44d-4fab-9763-47ca05636fb7">
+          <AttributeID>Início</AttributeID>
+          <Name>Início</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0aeb5114-df8e-458d-803a-8ae3d16807f8">
+          <AttributeID>Fim</AttributeID>
+          <Name>Fim</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9eb99773-0c14-4b6a-808e-fe607c399436">
+      <ID>Região</ID>
+      <Name>Região</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="edd7d26c-f213-4380-b390-db39c11ad911">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4003d2ff-ea8c-4784-9853-fcc8d0a30958">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>Região</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="40686bbc-e5c5-4ec7-92a7-66d6fc691812">
+      <ID>País</ID>
+      <Name>País</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b8881032-3bd8-4cde-9d07-1f437a70d751">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ba5bec8-665c-48fd-b156-a7d0c881d7e1">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>País</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="930d0221-276c-4630-86ef-7f5557880593">
+      <ID>País Sigla</ID>
+      <Name>País Sigla</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5ac00364-3b7c-47e1-a3c7-6a6b6c6c1250">
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8cfead4b-eb93-49dd-8b19-b6d76259666b">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>País_Sigla</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f0bd1bbb-a94c-4fd5-a750-5e500759df11">
+      <ID>Continente</ID>
+      <Name>Continente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="54f7d31b-d39a-4678-89df-0ac87fd0cb63">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0fab7512-bd70-46de-a589-9cd260e43784">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>Continente</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f21641e3-4387-4ef3-a4df-840a2224e263">
+      <ID>Início</ID>
+      <Name>Início</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a19d0f7a-ba97-4967-bafe-84bcf26c1394">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6c1719c7-9c32-4752-848f-e00c15d1b152">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>Início</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e1daca08-0a8d-4624-81c9-231ea1d011fa">
+      <ID>Fim</ID>
+      <Name>Fim</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fe7b751a-08f7-45c1-8bd9-4602837779b7">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d57c1f16-620a-4db4-b5bb-4cbe6a0de788">
+            <TableID>DataWarehouse_DimCliente</TableID>
+            <ColumnID>Fim</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="4878c741-3c74-428d-b647-e810fb08d7ff">
+      <ID>Hierarchy</ID>
+      <Name>Continente_Cliente</Name>
+      <Levels>
+        <Level dwd:design-time-name="5fc9c9c8-ea70-4dd8-bd68-f8683074f2d9">
+          <ID>Continente</ID>
+          <Name>Continente</Name>
+          <SourceAttributeID>Continente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="eb40259d-4d1c-421d-bd68-3fe00cb2b5a6">
+          <ID>País</ID>
+          <Name>País</Name>
+          <SourceAttributeID>País</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f3f1a73c-f045-45fd-b91e-4a8322959250">
+          <ID>Região</ID>
+          <Name>Região</Name>
+          <SourceAttributeID>Região</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="76d6e448-0215-4e27-9339-f580d413f83e">
+          <ID>Cliente</ID>
+          <Name>Cliente</Name>
+          <SourceAttributeID>Id SK</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="e73a91ce-59a4-4e3e-8479-3e23af051dd8">
+      <ID>Hierarchy 1</ID>
+      <Name>Continente_Região</Name>
+      <Levels>
+        <Level dwd:design-time-name="515ae840-0970-446f-ae77-ea4974261122">
+          <ID>Continente</ID>
+          <Name>Continente</Name>
+          <SourceAttributeID>Continente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="c4b3b26d-2942-4757-866f-fcb118cbc1ea">
+          <ID>País</ID>
+          <Name>País</Name>
+          <SourceAttributeID>País</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="83d3c6af-7ae9-4ec7-ba68-1416cd198104">
+          <ID>Região</ID>
+          <Name>Região</Name>
+          <SourceAttributeID>Região</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

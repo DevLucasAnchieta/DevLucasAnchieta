@@ -1,0 +1,1646 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2022 10:28:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI_SERVER"
+  DTS:CreatorName="BI_SERVER\Administrator"
+  DTS:DTSID="{DA72EC5C-B238-4E65-8640-388EE7D6E021}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="06 - Carga_DimPagamento"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{8E34AB92-2971-4A0C-8B1A-764F21A5C92D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F400ECFE-FEE2-4B9F-B226-D3662678869D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DW_AdventureWorks_DataWarehouse_DimPagamento">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5F0FCF2F-4B49-4C7A-912B-9E8392FD469E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga - DWAdventureWorks_DataWarehouse_DimPagamento"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Output].Columns[Fim]"
+                          dataType="dbTimeStamp"
+                          description="Fim"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Output].Columns[Fim]"
+                          name="Fim"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Output].Columns[Início]"
+                          dataType="dbTimeStamp"
+                          description="Início"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Output].Columns[Início]"
+                          name="Início"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [DataWarehouse].[DimPagamento] SET [Fim] = ? WHERE [IdPagamento] = ? AND [Fim] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{341C42CF-0DF0-4312-8B64-414225E9F1A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DW_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]" />
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].Columns[Fim]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Fim"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Output].Columns[Fim]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="RD_StgAreaAdventureWorks_StageArea_DimPagamento"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+           IdPagamento,
+           Pagamento
+From StageArea.DimPagamento</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Connections[OleDbConnection]"
+                      connectionManagerID="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.StgArea_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].ExternalColumns[IdPagamento]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]"
+                          name="IdPagamento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].ExternalColumns[Pagamento]"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]"
+                          name="Pagamento"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].ExternalColumns[IdPagamento]"
+                          dataType="i4"
+                          name="IdPagamento" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].ExternalColumns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pagamento" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[IdPagamento]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[IdPagamento]"
+                          name="IdPagamento" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[Pagamento]"
+                          name="Pagamento" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [IdPagamento], [Pagamento],[Início],[Fim] FROM [DataWarehouse].[DimPagamento]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere">[Início] IS NOT NULL AND [Fim] IS NULL</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="{341C42CF-0DF0-4312-8B64-414225E9F1A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DW_AdventureWorks]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdPagamento]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Pagamento]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Pagamento"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Pagamento]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdPagamento]"
+                          dataType="i4"
+                          name="IdPagamento" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pagamento" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Início]"
+                          dataType="dbTimeStamp"
+                          name="Início" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Fim]"
+                          dataType="dbTimeStamp"
+                          name="Fim" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 1].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[IdPagamento]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 1].Columns[Pagamento]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Pagamento"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[Pagamento]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 2].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[IdPagamento]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 2].Columns[Pagamento]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Pagamento"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[Pagamento]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[IdPagamento]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[IdPagamento]"
+                          name="IdPagamento" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[Pagamento]"
+                          name="Pagamento" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="WR_DWAdventureWorks_DataWarehouse_DimPagamento"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DataWarehouse].[DimPagamento]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Connections[OleDbConnection]"
+                      connectionManagerID="{341C42CF-0DF0-4312-8B64-414225E9F1A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DW_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[IdPagamento]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[IdPagamento]" />
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].Columns[Pagamento]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Pagamento"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Pagamento]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1].Columns[Pagamento]" />
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].Columns[Início]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Início"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Início]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Output].Columns[Início]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[IdSK]"
+                          dataType="i4"
+                          name="IdSK" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[IdPagamento]"
+                          dataType="i4"
+                          name="IdPagamento" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pagamento" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Início]"
+                          dataType="dbTimeStamp"
+                          name="Início" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Fim]"
+                          dataType="dbTimeStamp"
+                          name="Fim" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Derived Column Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Derived Column Output1]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Historical Attribute Inserts Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column.Inputs[Derived Column Input]"
+                  name="Historical Attribute Inserts Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[New Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 1]"
+                  name="New Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[OLE DB Command Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command.Outputs[OLE DB Command Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[OLE DB Source Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Union All Output 1]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A6A8B1A0-6387-4B2C-845E-EC4879B427B5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="StageAreaAdventureWorks_StageArea_Carga_DimPagamento">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AE1E43F2-7209-4E75-A4AB-765A4C9DED0E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga - StgAreaAdventureWorks_StageArea_DimPagamento"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="RD_AdventureWorks2012_Pagamento"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select 	
+		IdAuxPagamento As IdPagamento, 
+		FormaPagamento As Pagamento
+	From StageArea.AuxPagamento</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Connections[OleDbConnection]"
+                      connectionManagerID="{1652D664-205E-4769-82C8-B547F74A6419}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].ExternalColumns[IdPagamento]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]"
+                          name="IdPagamento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[Pagamento]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].ExternalColumns[Pagamento]"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[Pagamento]"
+                          name="Pagamento"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].ExternalColumns[IdPagamento]"
+                          dataType="i4"
+                          name="IdPagamento" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].ExternalColumns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pagamento" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[IdPagamento]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[IdPagamento]"
+                          name="IdPagamento" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[Pagamento]"
+                          name="Pagamento" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="WR_StgAreaAdventureWorks_StageArea_DimPagamento"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[StageArea].[DimPagamento]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Connections[OleDbConnection]"
+                      connectionManagerID="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.StgArea_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].Columns[IdPagamento]"
+                          cachedDataType="i4"
+                          cachedName="IdPagamento"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[IdPagamento]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]" />
+                        <inputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].Columns[Pagamento]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Pagamento"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Pagamento]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output].Columns[Pagamento]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[IdPagamento]"
+                          dataType="i4"
+                          name="IdPagamento" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input].ExternalColumns[Pagamento]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pagamento" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento.Paths[OLE DB Source Output]"
+                  endId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Truncate StgAreaAdventureWorks_StageArea_DimPagamento"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4FB1F13D-F59E-4A34-A15F-2977BA0C3D14}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate StgAreaAdventureWorks_StageArea_DimPagamento"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}"
+              SQLTask:SqlStatementSource="Truncate Table StageArea.DimPagamento&#xA;Go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C2455DD2-342E-4FD7-9D30-C635396F9B7D}"
+          DTS:From="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Truncate StgAreaAdventureWorks_StageArea_DimPagamento"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2A0A8704-D00C-40B9-9F51-D80D0FB864A4}"
+      DTS:From="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DW_AdventureWorks_DataWarehouse_DimPagamento" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="370,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Truncate StgAreaAdventureWorks_StageArea_DimPagamento"
+          TopLeft="15.5,33.5" />
+        <EdgeLayout
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento.PrecedenceConstraints[Constraint]"
+          TopLeft="200.5,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="362,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento"
+          TopLeft="19.5,128.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="402,225"
+          Size="402,268"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="369,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento"
+          TopLeft="14.5,23.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="398,120"
+          Size="398,164"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento"
+          TopLeft="441.5,64.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="407.5,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34,0"
+              Start="0,0"
+              End="26.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="347,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento"
+          TopLeft="116.5,118.5" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento"
+          TopLeft="163.5,32.5" />
+        <EdgeLayout
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento.Paths[OLE DB Source Output]"
+          TopLeft="291.25,74.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\RD_AdventureWorks2012_Pagamento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_DimPagamento\Carga - StgAreaAdventureWorks_StageArea_DimPagamento\WR_StgAreaAdventureWorks_StageArea_DimPagamento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="344,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento"
+          TopLeft="60.5,5.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension"
+          TopLeft="128,107.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column"
+          TopLeft="17.5,209.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Historical Attribute Inserts Output]"
+          TopLeft="199,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.5,60"
+              Start="0,0"
+              End="-104.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-100.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.5,24.2735042735043"
+                    Point2="-104.5,24.2735042735043"
+                    Point3="-104.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-104.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.30638671875,29.2735042735043,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\OLE DB Command"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Derived Column Output]"
+          TopLeft="91.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Union All"
+          TopLeft="172,413.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[New Output]"
+          TopLeft="266,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.6666666666666,264"
+              Start="0,0"
+              End="-14.6666666666666,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.104705383637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.104705383637"
+                    Point2="0,131.104705383637"
+                    Point3="-4,131.104705383637" />
+                  <mssgle:LineSegment
+                    End="-10.6666666666666,131.104705383637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6666666666666,131.104705383637"
+                    Point2="-14.6666666666666,131.104705383637"
+                    Point3="-14.6666666666666,135.104705383637" />
+                  <mssgle:LineSegment
+                    End="-14.6666666666666,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.4247200520833,136.104705383637,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[OLE DB Command Output]"
+          TopLeft="88.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Derived Column 1"
+          TopLeft="151,515.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Union All Output 1]"
+          TopLeft="232.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="353,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\WR_DWAdventureWorks_DataWarehouse_DimPagamento"
+          TopLeft="54.0000000000001,622.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento.Paths[Derived Column Output1]"
+          TopLeft="231.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\RD_StgAreaAdventureWorks_StageArea_DimPagamento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_DimPagamento\Carga - DWAdventureWorks_DataWarehouse_DimPagamento\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{341C42CF-0DF0-4312-8B64-414225E9F1A3}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[DataWarehouse].[DimPagamento]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[IdPagamento]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdPagamento&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;RD_StgAreaAdventureWorks_StageArea_DimPagamento.Outputs[OLE DB Source Output].Columns[Pagamento]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Pagamento&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;Início&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;Fim&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
