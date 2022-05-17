@@ -1,0 +1,917 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2022 9:59:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI_SERVER"
+  DTS:CreatorName="BI_SERVER\Administrator"
+  DTS:DTSID="{E1A36BAA-92CB-4E36-B18C-1724C1E5E0A8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="03 - Carga_tbSubcategoria"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{2CFCB1B2-1D37-4799-BDEE-9FD6E8CBE2C1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3B08F481-39E9-4A88-8876-C5F82D96CF7B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DW_AdventureWorks_DataWarehouse_tbSubcategoria">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CE59B3F0-E7A0-445B-81F1-824DBBA8DCAD}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga - DWAdventureWorks_DataWarehouse_DimPedido"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="RD_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select 
+          IdSubcategoria,
+          Subcategoria,
+          Categoria
+From StageArea.tbSubcategoria Where IdSubCategoria  Not In
+(Select IdSubcategoria From DW_AdventureWorks.DataWarehouse.tbSubCategoria)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Connections[OleDbConnection]"
+                      connectionManagerID="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.StgArea_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[IdSubcategoria]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]"
+                          name="IdSubcategoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          name="Subcategoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          name="Categoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[IdSubcategoria]"
+                          dataType="i4"
+                          name="IdSubcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Subcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Categoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[IdSubcategoria]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[IdSubcategoria]"
+                          name="IdSubcategoria" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          name="Subcategoria" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          name="Categoria" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="WR_DWAdventureWorks_DataWarehouse_tbSubcategoria"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DataWarehouse].[tbSubcategoria]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Connections[OleDbConnection]"
+                      connectionManagerID="{341C42CF-0DF0-4312-8B64-414225E9F1A3}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DW_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[IdSubcategoria]"
+                          cachedDataType="i4"
+                          cachedName="IdSubcategoria"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[IdSubCategoria]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]" />
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[Subcategoria]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Subcategoria"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]" />
+                        <inputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[Categoria]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Categoria"
+                          externalMetadataColumnId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output].Columns[Categoria]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[IdSubCategoria]"
+                          dataType="i4"
+                          name="IdSubCategoria" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Subcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Categoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido.Paths[OLE DB Source Output]"
+                  endId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2494134B-E9DE-424B-9EB4-070BDA702143}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3A9B5481-BB5E-492A-B22B-12EE004F44C1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="RD_AdventureWorks2012_Subcategoria"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select 
+		SC.ProductSubcategoryID As IdSubcategoria,
+		SC.Name As Subcategoria,
+		C.Name As Categoria
+	From Production.ProductSubcategory SC
+	Inner join Production.ProductCategory C
+	on SC.ProductCategoryID = C.ProductCategoryID</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Connections[OleDbConnection]"
+                      connectionManagerID="{1652D664-205E-4769-82C8-B547F74A6419}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[IdSubcategoria]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]"
+                          name="IdSubcategoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          name="Subcategoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          name="Categoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[IdSubcategoria]"
+                          dataType="i4"
+                          name="IdSubcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Subcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Categoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[IdSubcategoria]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[IdSubcategoria]"
+                          name="IdSubcategoria" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          name="Subcategoria" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          name="Categoria" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="WR_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[StageArea].[tbSubcategoria]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Connections[OleDbConnection]"
+                      connectionManagerID="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.StgArea_AdventureWorks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[IdSubcategoria]"
+                          cachedDataType="i4"
+                          cachedName="IdSubcategoria"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[IdSubcategoria]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[IdSubcategoria]" />
+                        <inputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[Subcategoria]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Subcategoria"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Subcategoria]" />
+                        <inputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].Columns[Categoria]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Categoria"
+                          externalMetadataColumnId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output].Columns[Categoria]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[IdSubcategoria]"
+                          dataType="i4"
+                          name="IdSubcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Subcategoria" />
+                        <externalMetadataColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          dataType="wstr"
+                          length="50"
+                          name="Categoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria.Paths[OLE DB Source Output]"
+                  endId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Truncate StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{82808703-E5E0-4F90-80E9-BE8595D7624F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{56C60CE1-76D2-4EBB-AA51-EB5B7AD3BE43}"
+              SQLTask:SqlStatementSource="Truncate Table StageArea.tbSubcategoria&#xA;Go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{244314A7-F164-4B75-B7CF-AA40E92F54B4}"
+          DTS:From="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Truncate StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{024796B2-94FB-4977-A2EC-53EBD1644EED}"
+      DTS:From="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="348,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido"
+          TopLeft="23,83" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="395,241"
+          Size="395,284"
+          Id="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria"
+          TopLeft="481,25" />
+        <NodeLayout
+          Size="361,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          TopLeft="13.5,148.5" />
+        <NodeLayout
+          Size="369,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Truncate StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          TopLeft="14.5,34.5" />
+        <EdgeLayout
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria.PrecedenceConstraints[Constraint]"
+          TopLeft="196.5,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="391,246"
+          Size="391,289"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria"
+          TopLeft="48,22" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="439,166.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,0"
+              Start="0,0"
+              End="34.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="352,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria"
+          TopLeft="173.5,111.5" />
+        <NodeLayout
+          Size="343,42"
+          Id="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          TopLeft="174.5,25.5" />
+        <EdgeLayout
+          Id="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido.Paths[OLE DB Source Output]"
+          TopLeft="347.75,67.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\RD_StgAreaAdventureWorks_StageArea_tbSubcategoria">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DW_AdventureWorks_DataWarehouse_tbSubcategoria\Carga - DWAdventureWorks_DataWarehouse_DimPedido\WR_DWAdventureWorks_DataWarehouse_tbSubcategoria">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="266,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria"
+          TopLeft="181.5,19.5" />
+        <NodeLayout
+          Size="346,42"
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria"
+          TopLeft="146.5,117.5" />
+        <EdgeLayout
+          Id="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria.Paths[OLE DB Source Output]"
+          TopLeft="317,61.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\RD_AdventureWorks2012_Subcategoria">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageAreaAdventureWorks_StageArea_Carga_tbSubcategoria\Carga - StgAreaAdventureWorks_StageArea_tbSubcategoria\WR_StgAreaAdventureWorks_StageArea_tbSubcategoria">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
